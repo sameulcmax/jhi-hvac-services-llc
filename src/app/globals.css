@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Manrope", "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui,
+    sans-serif;
+
+  --color-navy-950: #061e38;
+  --color-navy-900: #092b50;
+  --color-navy-800: #103f70;
+  --color-navy-700: #164f82;
+  --color-navy-100: #d8e6f3;
+  --color-navy-50: #eef5fb;
+
+  --color-ice-700: #0d7fb3;
+  --color-ice-600: #1398d4;
+  --color-ice-500: #22a9e8;
+  --color-ice-300: #63c9f2;
+  --color-ice-100: #c6ecfb;
+  --color-ice-50: #e8f7ff;
+
+  --color-flame-700: #c2690f;
+  --color-flame-600: #dd7a1c;
+  --color-flame-500: #f28c28;
+  --color-flame-400: #ffab47;
+  --color-flame-100: #ffe0bd;
+  --color-flame-50: #fff2e5;
+
+  --color-mist: #f7fafd;
+  --color-fog: #f1f6fa;
+
+  --radius-card: 18px;
+  --shadow-soft: 0 1px 2px rgba(9, 43, 80, 0.04), 0 10px 30px -18px rgba(9, 43, 80, 0.28);
+  --shadow-lift: 0 2px 4px rgba(9, 43, 80, 0.05), 0 24px 48px -26px rgba(9, 43, 80, 0.35);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #ffffff;
+    color: #0f2a45;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.022em;
+    color: var(--color-navy-900);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-ice-100);
+    color: var(--color-navy-900);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ice-600);
+    outline-offset: 3px;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@utility shell {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.15rem;
+}
+
+@media (min-width: 768px) {
+  .shell {
+    padding-inline: 2rem;
+  }
+}
+
+@utility section-y {
+  padding-block: 3.25rem;
+}
+
+@media (min-width: 768px) {
+  .section-y {
+    padding-block: 5rem;
+  }
+}
+
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@utility card-surface {
+  background: #ffffff;
+  border: 1px solid rgba(9, 43, 80, 0.09);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+}
+
+@utility hero-grid-bg {
+  background-image:
+    radial-gradient(circle at 88% 8%, rgba(232, 247, 255, 0.9) 0, rgba(232, 247, 255, 0) 48%),
+    radial-gradient(circle at 4% 92%, rgba(255, 242, 229, 0.85) 0, rgba(255, 242, 229, 0) 42%),
+    linear-gradient(180deg, #ffffff 0%, #f7fafd 100%);
+}
+
+@utility dot-field {
+  background-image: radial-gradient(rgba(9, 43, 80, 0.14) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+@utility hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
